@@ -1,0 +1,40 @@
+.previouscities {
+    background-color:darkgrey;
+    padding: 10px;
+    border: 5px;
+    border-color: black;
+    border-radius: 3px;
+    margin: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+.previouscities:hover {
+    box-shadow:10px 10px 5px #000000;
+    mix-blend-mode: normal;
+    opacity: 1;
+  }
+
+  .previouscities:active {
+    box-shadow: 0px 0px 0px #000000;
+    mix-blend-mode: normal;
+    opacity: 1;
+  }
+
+  #curcity {
+    border-color: black;
+    border-radius: 3px;
+    transition: 0.2s ease-in-out;
+    text-align: left;
+    border-width: 5px;
+  }
+
+  .forecast {
+    background-color: #2d4481;
+    color: white;
+    border-color: black;
+    border-radius: 3px;
+    transition: 0.2s ease-in-out;
+    text-align: left;
+    border-width: 10px;
+    flex: 1 0 0;
+  }

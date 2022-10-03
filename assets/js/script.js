@@ -18,6 +18,8 @@ $("button").on("click", function (event) {
   }
 });
 
+
+
 function getApi1() {
 
   var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=d0b3d60ddebfa06a2470cd0db54f65d9';

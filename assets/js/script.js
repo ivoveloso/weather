@@ -13,9 +13,36 @@ $("button").on("click", function (event) {
     return
   } else {
   $('input').val('');
-  $('#previous').append("<div class='button'>" + city + "</div>");
+  $('#previous').append("<div class='btn btn-secondary button'>" + city + "</div>");
+  storage(city);
   getApi1();
   }
+});
+
+function storage(name) {
+  if (localStorage.getItem('cities')) {
+    let cities = JSON.parse(localStorage.getItem('cities'));
+    cities.push(name);
+    localStorage.setItem('cities', JSON.stringify(cities));
+  } else {
+    localStorage.setItem('cities', JSON.stringify([name]));
+  }
+};
+
+function rendercities() {
+  if (localStorage.getItem('cities')) {
+    let cities = JSON.parse(localStorage.getItem('cities'));
+    for (let index = 0; index < cities.length; index++) {
+      const element = cities[index];
+      $('#previous').append("<div class='btn btn-secondary button'>" + element + "</div>");
+    }
+  }
+}
+
+$( "#previous" ).on( "click", ".button", function( event ) {
+  event.preventDefault();
+  city = $( this ).text();
+  getApi1();
 });
 
 
@@ -85,5 +112,6 @@ function rendercity() {
 
     $('#forecast' + i).replaceWith("<div class='forecast' id='forecast" + i + "'><p>" + moment(toresp[0]['daily'][i]['dt'], 'X').format('L') + "</p><p><img src='http://openweathermap.org/img/wn/" + toresp[0]['daily'][i]['weather'][0]['icon'] + ".png'></p><p> Temperature: " + (parseInt(toresp[0]['daily'][i]['temp']['day']) - 273) + "°C</p><p> Wind: " + toresp[0]['daily'][i]['wind_speed'] + "m/s</p><p> Humidity: " + toresp[0]['daily'][i]['humidity'] + "%</p><p> UV Index: <span style='background-color:" + uviColour + ";padding:0 10px;color:black'>" + toresp[0]['daily'][i]['uvi'] + "</span></p></div>")
   }
-console.log(city);
+// console.log(city);
 }
+rendercities();

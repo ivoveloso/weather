@@ -38,3 +38,9 @@
     border-width: 10px;
     flex: 1 0 0;
   }
+
+  .button {
+    display: block;
+    width: 50%;
+    margin: 10px auto;
+  }
